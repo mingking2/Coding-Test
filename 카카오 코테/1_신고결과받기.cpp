@@ -16,7 +16,7 @@ int* solution(const char* id_list[], size_t id_list_len, const char* report[], s
 
 const char* id_list[] = { "muzi","frodo","apeach","neo" };
 size_t id_list_len = sizeof(id_list) / sizeof(id_list[0]);
-
+int ch_k = 0;
 
 void show(char* report[], size_t report_len) {
 	printf("*   id_list[]   *\n");
@@ -107,6 +107,7 @@ void show(char* report[], size_t report_len) {
 bool str_compare(char command[]) {
 	for (int i = 0; i < id_list_len; i++) {
 		if (strcmp(id_list[i], command) == 0) {
+			ch_k = i;
 			return 1;
 		}
 	}
@@ -124,15 +125,20 @@ int main() {
 	char** report = (char**)malloc(sizeof(char*) * report_len);
 	char command[BUFFER_SIZE];
 	char target[BUFFER_SIZE];
+	int* number_k = (int*)calloc(id_list_len,sizeof(int));
 	int i = 0;
+	int k = 2;
 
 	while (1) {
 		printf("$ ");
 		scanf("%s %s", command, target);
 
+		if (strcmp(command, "exit") == 0 || strcmp(target,"exit")==0) break;
+
 		if (str_compare(command) == 1) {
 			if (strcmp(command, target) != 0 && str_compare(target) == 1) {
-				printf(" %s ===>>> %s \n", command, target);
+				number_k[ch_k]++;
+				printf("'%s'가 '%s'를 신고했습니다.\n", command, target);
 				strcat(command, " ");
 				strcat(command, target);
 				report[i] = _strdup(command);
@@ -151,9 +157,38 @@ int main() {
 		else {
 			printf("신고자의 ID가 존재하지 않습니다.\n");
 		}
-
 	}
 
+	int* get_mail = (int*)calloc(id_list_len, sizeof(int));
+
+
+	for (int i = 0; i < id_list_len; i++) {
+		char rev_target[30];
+		char* tmp = {};
+		strcpy(rev_target, report[i]);
+		
+		printf("%s\n", rev_target);
+		
+		char* ptr = strtok(rev_target, " ");
+		
+		while (ptr != NULL) {
+			printf("%s\n", ptr);
+			tmp = ptr;
+			//strcpy(tmp, ptr);
+			ptr = strtok(NULL, " ");
+			
+		}
+
+		if (strcmp(id_list[i], ptr) == 0 && number_k[i] >= k) {
+			str_compare(tmp);
+			get_mail[ch_k]++;
+		}
+
+	}
+	printf("*   get_mail[]   *\n");
+	for (int j = 0; j < id_list_len; j++) {
+		printf(" %d ", get_mail[j]);
+	}
 
 
 }
