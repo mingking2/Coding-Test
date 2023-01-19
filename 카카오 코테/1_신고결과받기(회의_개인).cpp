@@ -13,9 +13,10 @@ int* solution(const char* id_list[], size_t id_list_len, const char* report[], s
 	int* answer = (int*)malloc(1);
 	return answer;
 }
+
+
 //{ "muzi","frodo","apeach","neo" };
 //{ "con","ryan" };
-
 const char* id_list[] = { "muzi","frodo","apeach","neo" };
 
 //2
@@ -69,10 +70,6 @@ int main() {
 				report[i] = _strdup(command);
 				i++;
 
-				printf("*   report[]   *\n");
-				for (int j = 0; j < i; j++) {
-					printf(" %s\n", report[j]);
-				}
 			}
 			else {
 				if (strcmp(command, target) == 0) printf("동일한 ID입니다.\n");
@@ -83,6 +80,12 @@ int main() {
 			printf("신고자의 ID가 존재하지 않습니다.\n");
 		}
 	}
+
+	printf("*   report[]   *\n");
+	for (int j = 0; j < i; j++) {
+		printf(" %s\n", report[j]);
+	}
+
 
 	// report[]에 동일한 데이터 (신고자와 신고대상이 같은 데이터)가 여러번 들어가는 경우
 	for (int p = 0; p < i; p++) {
