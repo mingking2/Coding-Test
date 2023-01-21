@@ -24,5 +24,14 @@
     <ClCompile Include="1_신고결과받기(개인).cpp">
       <Filter>소스 파일\1.신고결과받기</Filter>
     </ClCompile>
+    <ClCompile Include="1_신고결과받기(function).cpp">
+      <Filter>소스 파일\1.신고결과받기</Filter>
+    </ClCompile>
+    <ClCompile Include="1_신고결과받기(제출용).cpp">
+      <Filter>소스 파일\1.신고결과받기</Filter>
+    </ClCompile>
+    <ClCompile Include="1_신고결과받기(1차완성).cpp">
+      <Filter>소스 파일\1.신고결과받기</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
