@@ -67,10 +67,12 @@ int* solution(const char* id_list[], size_t id_list_len,const char* report[], si
 		ptr = strtok(NULL, " ");
 		tmp[1] = ptr;
 	
-		if (str_compare(tmp[1]) && number_k[ch_k] >= k) {
-			str_compare(tmp[0]);
-			answer[ch_k]++;
-		}
+		if (answer != NULL) {
+			if (str_compare(tmp[1]) && number_k[ch_k] >= k) {
+				str_compare(tmp[0]);
+				answer[ch_k]++;
+			}
+		}	
 	}
 
 	return answer;

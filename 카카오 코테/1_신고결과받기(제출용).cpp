@@ -6,8 +6,8 @@
 #include <stdlib.h>
 #include <string.h>
 
-const char* id_list[] = { "con","ryan" };  //{ "muzi", "frodo", "apeach", "neo" };
-const char* report[] = { "ryan con","ryan con","ryan con","ryan con" }; //{ "muzi frodo","apeach frodo","frodo neo","muzi neo","apeach muzi" }; 
+const char* id_list[] =  { "con","ryan" }; //{ "muzi", "frodo", "apeach", "neo" }; 
+const char* report[] = { "ryan con","ryan con","ryan con","ryan con" };  //{ "muzi frodo","apeach frodo","frodo neo","muzi neo","apeach muzi" }; 
 
 size_t id_list_len = sizeof(id_list) / sizeof(id_list[0]);
 size_t report_len = sizeof(report) / sizeof(report[0]);
@@ -31,7 +31,7 @@ int* solution(const char* id_list[], size_t id_list_len, const char* report[], s
 	for (int i = 0; i < report_len; i++) {
 		char copy[30];
 		char* tmp[2] = { NULL, };
-		int a, b = 0;
+		int a = 0;	int b = 0;
 		strcpy(copy, report[i]);
 
 		char* ptr_s = strtok(copy, " ");
@@ -41,18 +41,20 @@ int* solution(const char* id_list[], size_t id_list_len, const char* report[], s
 
 		a = str_compare(tmp[0]);
 		b = str_compare(tmp[1]);
+		if (*ch != NULL) {
+			if (ch[a][b] == 0)	ch[a][b]++;
+		}
 
-		if (ch[a][b] == 0)	ch[a][b]++;
-		
+
 	}
 
-	printf("\n*   ch[]   *\n");
+	/*printf("\n*   ch[]   *\n");
 	for (int j = 0; j < id_list_len; j++) {
 		for (int k = 0; k < id_list_len; k++) {
 			printf("%d ", ch[j][k]);
 		}
 		printf("\n");
-	}
+	}*/
 
 	int* answer = (int*)calloc(id_list_len, sizeof(int));
 
@@ -61,7 +63,7 @@ int* solution(const char* id_list[], size_t id_list_len, const char* report[], s
 	for (int i = 0; i < id_list_len; i++) {
 		sum = 0;
 		for (int j = 0; j < id_list_len; j++) {
-			if (ch != NULL) {
+			if (*ch != NULL) {
 				sum += ch[j][i];
 				target = i;
 			}
@@ -71,15 +73,15 @@ int* solution(const char* id_list[], size_t id_list_len, const char* report[], s
 
 		if (sum >= k) {
 			for (int m = 0; m < id_list_len; m++) {
-				if (ch != NULL) {
+				if (target != NULL && ch[m][target] != NULL && answer != NULL) {
 					if (ch[m][target] == 1) {
 						answer[m]++;
 					}
 				}
-				
-			}	
+
+			}
 		}
-	} 
+	}
 
 	for (int i = 0; i < id_list_len; i++) {
 		free(ch[i]);
@@ -89,7 +91,7 @@ int* solution(const char* id_list[], size_t id_list_len, const char* report[], s
 }
 
 int main() {
-	int* get_mail = solution(id_list, id_list_len, report, report_len, 3);
+	int* get_mail = solution(id_list, id_list_len, report, report_len, 2);
 
 	printf("\n*   id_list[]   *\n");
 	printf(" [");
