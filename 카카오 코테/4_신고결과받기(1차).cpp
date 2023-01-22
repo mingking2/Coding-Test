@@ -30,21 +30,26 @@ bool str_compare(char a[]) {
 	return 0;
 }
 
+void str_token(int p,const char* report[], char a[], char* tmp[]) {
+	strcpy(a, report[p]);
+	char* ptr = strtok(a, " ");
+	tmp[0] = ptr;
+	ptr = strtok(NULL, " ");
+	tmp[1] = ptr;
+
+}
+
 // id_list_len은 배열 id_list의 길이입니다.
 // report_len은 배열 report의 길이입니다.
 // 파라미터로 주어지는 문자열은 const로 주어집니다. 변경하려면 문자열을 복사해서 사용하세요.
 int* solution(const char* id_list[], size_t id_list_len,const char* report[], size_t report_len, int k) {
+
 	int* answer = (int*)calloc(id_list_len, sizeof(int));
+
 	for (int p = 0; p < report_len; p++) {
 		char same_t[30];
 		char* tmp_s[2] = { NULL, };
-		strcpy(same_t, report[p]);
-
-		char* ptr_s = strtok(same_t, " ");
-		tmp_s[0] = ptr_s;
-		ptr_s = strtok(NULL, " ");
-		tmp_s[1] = ptr_s;
-
+		str_token(p, report, same_t, tmp_s);
 		str_compare(tmp_s[1]);
 		number_k[ch_k]++;
 
@@ -60,12 +65,7 @@ int* solution(const char* id_list[], size_t id_list_len,const char* report[], si
 	for (int i = 0; i <= id_list_len; i++) {
 		char mail[30];
 		char* tmp[2] = { NULL, };
-		strcpy(mail, report[i]);
-
-		char* ptr = strtok(mail, " ");
-		tmp[0] = ptr;
-		ptr = strtok(NULL, " ");
-		tmp[1] = ptr;
+		str_token(i, report, mail, tmp);
 	
 		if (answer != NULL) {
 			if (str_compare(tmp[1]) && number_k[ch_k] >= k) {
