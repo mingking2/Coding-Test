@@ -16,65 +16,58 @@ size_t report_len = sizeof(report) / sizeof(report[0]);
 int* solution(const char* id_list[], size_t id_list_len, const char* report[], size_t report_len, int k) {
 
 	int** ch;
-	ch = (int**)calloc(id_list_len, sizeof(int*));
-	for (int i = 0; i < id_list_len; ++i) {
+	int i, j;
+	ch = (int**)malloc(sizeof(int*) * id_list_len);
+	for (int i = 0; i < id_list_len; i++) {
 		if (ch != NULL) {
-			ch[i] = (int*)calloc(id_list_len, sizeof(int));
+			ch[i] = (int*)malloc(sizeof(int) * id_list_len);
 		}
 	}
 
-	for (int i = 0; i < report_len; ++i) {
+	for (i = 0; i < report_len; i++) {
 		char* report_strtok;
 		char report_copy[20];
 		strcpy(report_copy, report[i]);
-		report_strtok = strtok(report_copy, " ");
 
+		report_strtok = strtok(report_copy, " ");
 		int index1 = 0;
-		for (int j = 0; j < id_list_len; ++j) {
-			if (strcmp(id_list[j], report_strtok) == 0)
+		for (j = 0; j < id_list_len; j++) {
+			if (strcmp(id_list[j], report_strtok) == 0) {
 				index1 = j;
+				break;
+			}
 		}
 
 		report_strtok = strtok(NULL, " ");
 		int index2 = 0;
-		for (int j = 0; j < id_list_len; ++j) {
-			if (strcmp(id_list[j], report_strtok) == 0)
+		for (j = 0; j < id_list_len; j++) {
+			if (strcmp(id_list[j], report_strtok) == 0) {
 				index2 = j;
+				break;
+			}
 		}
+
 		ch[index1][index2] = 1;
-
 	}
-
-	//printf("\n*   ch[]   *\n");
-	//for (int j = 0; j < id_list_len; j++) {
-	//	for (int k = 0; k < id_list_len; k++) {
-	//		printf("%d ", ch[j][k]);
-	//	}
-	//	printf("\n");
-	//}
-
-
 
 	int* result = (int*)calloc(id_list_len, sizeof(int));
-	for (int j = 0; j < id_list_len; j++) {
-		for (int i = 0; i < id_list_len; i++) {
+	int* answer = (int*)calloc(id_list_len, sizeof(int));
+	for (j = 0; j < id_list_len; j++) {
+		for (i = 0; i < id_list_len; i++) {
 			if (ch[i][j] == 1) result[j] += 1;
 		}
-	}
-
-	for (int i = 0; i < id_list_len; i++) {
-		printf("%d ", result[i]);
-	}
-	printf("\n");
-
-	int* answer = (int*)calloc(id_list_len, sizeof(int));
-	for (int j = 0; j < id_list_len; j++) {
-		for (int i = 0; i < id_list_len; i++) {
-			if (ch[j][i] == 1 && result[i] >= k) answer[j] += 1;
+		if (result[j] >= k) {
+			for (i = 0; i < id_list_len; i++) {
+				if (ch[i][j] == 1) answer[i] += 1;
+			}
 		}
 	}
 
-
+	for (i = 0; i < id_list_len; i++) {
+		free(ch[i]);
+	}
+	free(ch);
+	free(result);
 	return answer;
 }
 

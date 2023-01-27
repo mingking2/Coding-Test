@@ -18,7 +18,7 @@ size_t id_list_len = sizeof(id_list) / sizeof(id_list[0]);
 size_t report_len = id_list_len * (id_list_len - 1);
 
 char** report = (char**)malloc(sizeof(char*) * report_len);
-int* number_k = (int*)calloc(id_list_len, sizeof(int));
+int* number_k = (int*)malloc(id_list_len, sizeof(int));
 
 int ch_k = 0;
 int i = 0;
@@ -98,7 +98,7 @@ int* solution(const char* id_list[], size_t id_list_len, char* report[], size_t 
 	}
 
 	int* answer;
-	answer = (int*)calloc(id_list_len, sizeof(int));
+	answer = (int*)malloc(id_list_len, sizeof(int));
 
 	for (int i = 0; i < id_list_len; i++) {
 		char rev_target[30];

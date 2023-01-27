@@ -14,7 +14,7 @@ int k = 0;
 size_t id_list_len = sizeof(id_list) / sizeof(id_list[0]);
 size_t report_len = sizeof(report) / sizeof(report[0]);
 
-int* number_k = (int*)calloc(id_list_len, sizeof(int));	// 제출할때는 solution에 넣으슈
+int* number_k = (int*)malloc(id_list_len, sizeof(int));	// 제출할때는 solution에 넣으슈
 int ch_k = 0;
 
 
@@ -44,7 +44,7 @@ void str_token(int p,const char* report[], char a[], char* tmp[]) {
 // 파라미터로 주어지는 문자열은 const로 주어집니다. 변경하려면 문자열을 복사해서 사용하세요.
 int* solution(const char* id_list[], size_t id_list_len,const char* report[], size_t report_len, int k) {
 
-	int* answer = (int*)calloc(id_list_len, sizeof(int));
+	int* answer = (int*)malloc(id_list_len, sizeof(int));
 
 	for (int p = 0; p < report_len; p++) {
 		char same_t[30];

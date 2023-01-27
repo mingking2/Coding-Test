@@ -33,10 +33,10 @@ void str_token(int p, const char* report[], char a[], char* tmp[]) {
 int* solution(const char* id_list[], size_t id_list_len, const char* report[], size_t report_len, int k) {
 	
 	int** ch;
-	ch = (int**)calloc(id_list_len, sizeof(int*));
+	ch = (int**)malloc(id_list_len, sizeof(int*));
 	for (int i = 0; i < id_list_len; ++i) {
 		if (ch != NULL) {
-			ch[i] = (int*)calloc(id_list_len, sizeof(int));
+			ch[i] = (int*)malloc(id_list_len, sizeof(int));
 		}
 	}
 
@@ -79,7 +79,7 @@ int* solution(const char* id_list[], size_t id_list_len, const char* report[], s
 			}
 		}
 	
-	int* result = (int*)calloc(id_list_len, sizeof(int));
+	int* result = (int*)malloc(id_list_len, sizeof(int));
 	for (int j = 0; j < id_list_len; j++) {
 		for (int i = 0; i < id_list_len; i++) {
 			if (ch[i][j] == 1) result[j] += 1;
@@ -91,7 +91,7 @@ int* solution(const char* id_list[], size_t id_list_len, const char* report[], s
 	}
 	printf("\n");
 
-	int* answer = (int*)calloc(id_list_len, sizeof(int));
+	int* answer = (int*)malloc(id_list_len, sizeof(int));
 	for (int j = 0; j < id_list_len; j++) {
 		for (int i = 0; i < id_list_len; i++) {
 			if (ch[j][i] == 1 && result[i]>=k) answer[j] += 1;

@@ -48,7 +48,7 @@ int main() {
 	char command[BUFFER_SIZE];
 	char target[BUFFER_SIZE];
 
-	int* number_k = (int*)calloc(id_list_len,sizeof(int));
+	int* number_k = (int*)malloc(id_list_len,sizeof(int));
 	int i = 0;
 	
 
@@ -113,7 +113,7 @@ int main() {
 	
 	//report[]와 number_k[]를 사용하여 처리결과메일을 신고자마다 받을 횟수를 get_mail[]에 저장
 	int* get_mail;
-	get_mail = (int*)calloc(id_list_len, sizeof(int));
+	get_mail = (int*)malloc(id_list_len, sizeof(int));
 
 	for (int i = 0; i < id_list_len; i++) {
 		char rev_target[30];
