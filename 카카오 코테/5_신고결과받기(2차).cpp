@@ -12,23 +12,23 @@ const char* report[] = { "muzi frodo","apeach frodo","frodo neo","muzi neo","ape
 size_t id_list_len = sizeof(id_list) / sizeof(id_list[0]);
 size_t report_len = sizeof(report) / sizeof(report[0]);
 
-//int str_compare(char a[]) {
-//	for (int i = 0; i < id_list_len; i++) {
-//		if (strcmp(id_list[i], a) == 0) {
-//			return i;
-//		}
-//	}
-//	return -1;
-//}
-//
-//void str_token(int p, const char* report[], char a[], char* tmp[]) {
-//	strcpy(a, report[p]);
-//	char* ptr = strtok(a, " ");
-//	tmp[0] = ptr;
-//	ptr = strtok(NULL, " ");
-//	tmp[1] = ptr;
-//
-//}
+int str_compare(char a[]) {
+	for (int i = 0; i < id_list_len; i++) {
+		if (strcmp(id_list[i], a) == 0) {
+			return i;
+		}
+	}
+	return -1;
+}
+
+void str_token(int p, const char* report[], char a[], char* tmp[]) {
+	strcpy(a, report[p]);
+	char* ptr = strtok(a, " ");
+	tmp[0] = ptr;
+	ptr = strtok(NULL, " ");
+	tmp[1] = ptr;
+
+}
 
 int* solution(const char* id_list[], size_t id_list_len, const char* report[], size_t report_len, int k) {
 	
@@ -46,28 +46,15 @@ int* solution(const char* id_list[], size_t id_list_len, const char* report[], s
 		strcpy(report_copy, report[i]);
 		report_strtok = strtok(report_copy, " ");
 
-		int index1 = 0;
-		for (int j = 0; j < id_list_len; ++j) {
-			if (strcmp(id_list[j], report_strtok) == 0)
-				index1 = j;
-		}
-
-		report_strtok = strtok(NULL, " ");
-		int index2 = 0;
-		for (int j = 0; j < id_list_len; ++j) {
-			if (strcmp(id_list[j], report_strtok) == 0)
-				index2 = j;
-		}
-		ch[index1][index2] = 1;
 		
-		/*char copy[30]="";
+		char copy[30]="";
 		char* tmp[2] = { NULL, };
 		int a = 0;	int b = 0;
 		str_token(i, report, copy, tmp);
 
 		a = str_compare(tmp[0]);
 		b = str_compare(tmp[1]);
-		ch[a][b] = 1;*/
+		ch[a][b] = 1;
 
 
 	}
@@ -81,16 +68,16 @@ int* solution(const char* id_list[], size_t id_list_len, const char* report[], s
 	//}
 
 
-	//int target = 0;
-	//int sum = 0;
-	//for (int i = 0; i < id_list_len; ++i) {
-	//	sum = 0;
-	//	for (int j = 0; j < id_list_len; ++j) {
-	//		if (ch != NULL && *ch !=NULL) {
-	//			sum += ch[j][i];
-	//			target = i;
-	//		}
-	//	}
+	int target = 0;
+	int sum = 0;
+	for (int i = 0; i < id_list_len; ++i) {
+		sum = 0;
+		for (int j = 0; j < id_list_len; ++j) {
+			if (ch != NULL && *ch !=NULL) {
+				sum += ch[j][i];
+				target = i;
+			}
+		}
 	
 	int* result = (int*)calloc(id_list_len, sizeof(int));
 	for (int j = 0; j < id_list_len; j++) {
