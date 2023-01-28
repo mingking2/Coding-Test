@@ -162,7 +162,8 @@
     </ClCompile>
     <ClCompile Include="7_신고결과받기(승제).cpp" />
     <ClCompile Include="8_카카오_지안_신고메일2.cpp" />
-    <ClCompile Include="9_신고결과받기(하은,새진).cpp" />
+    <ClCompile Include="10_신고결과받기%28하은,새진%29.cpp" />
+    <ClCompile Include="9_카카오_민주_신고메일2.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
