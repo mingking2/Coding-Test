@@ -158,6 +158,8 @@
     <ClCompile Include="0_test.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
     </ClCompile>
+    <ClCompile Include="C:\Users\jmgma\Desktop\카카오_지안_신고메일2.cpp" />
+    <ClCompile Include="C:\Users\jmgma\Documents\카카오톡 받은 파일\신고결과받기(하은,새진).cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
