@@ -1,6 +1,10 @@
 2022 KAKAO BLIND RECRUITMENT
 =====================
 
+<details>
+<summary>문제 1</summary>
+
+
 
 문제 1 - 신고 결과 받기
 ------------------------
@@ -137,6 +141,13 @@ int* solution(const char* id_list[], size_t id_list_len, const char* report[], s
   
 ### - 1등 코드 (민기, 승제)
 
+
+<details>
+
+
+<summary>코드 보기</summary>
+
+
 ```
 #define _CRT_SECURE_NO_WARNINGS
 #define BUFFER_SIZE 20
@@ -212,11 +223,18 @@ int* solution(const char* id_list[], size_t id_list_len, const char* report[], s
 }
 ```
   
-  
+</details>  
   
   
 ---
 ---  
+</details>
+
+
+
+<details>
+<summary>문제 2</summary>
+
 
 
 
@@ -302,3 +320,28 @@ int solution(int n,int k){
   return answer;
 }
 ```
+
+
+### - 1등 코드 (??, ??)
+
+
+<details>
+
+
+<summary>코드 보기</summary>
+
+
+
+```
+
+```
+
+
+
+---
+---
+</details>
+
+
+
+</details>
