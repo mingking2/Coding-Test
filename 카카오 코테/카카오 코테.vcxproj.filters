@@ -39,10 +39,13 @@
     <ClCompile Include="0_test.cpp">
       <Filter>소스 파일\1.신고결과받기</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\jmgma\Documents\카카오톡 받은 파일\신고결과받기(하은,새진).cpp">
+    <ClCompile Include="8_카카오_지안_신고메일2.cpp">
       <Filter>소스 파일\1.신고결과받기</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\jmgma\Desktop\카카오_지안_신고메일2.cpp">
+    <ClCompile Include="9_신고결과받기(하은,새진).cpp">
+      <Filter>소스 파일\1.신고결과받기</Filter>
+    </ClCompile>
+    <ClCompile Include="7_신고결과받기(승제).cpp">
       <Filter>소스 파일\1.신고결과받기</Filter>
     </ClCompile>
   </ItemGroup>
