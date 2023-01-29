@@ -238,7 +238,7 @@ int* solution(const char* id_list[], size_t id_list_len, const char* report[], s
 
 
 
-문제 2 - 신고 결과 받기
+문제 2 - k 진수에서 소수의 개수 구하기
 ------------------------
 
 ### 문제 설명
