@@ -48,5 +48,14 @@
     <ClCompile Include="0_test.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="2_k진수에서소수의개수구하기(1차).cpp">
+      <Filter>소스 파일\2.k진수에서소수의개수구하기</Filter>
+    </ClCompile>
+    <ClCompile Include="2_k진수에서소수의개수구하기(변수로최종).cpp">
+      <Filter>소스 파일\2.k진수에서소수의개수구하기</Filter>
+    </ClCompile>
+    <ClCompile Include="2_k진수에서소수의개수구하기%28민기,하은%29.cpp">
+      <Filter>소스 파일\2.k진수에서소수의개수구하기</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

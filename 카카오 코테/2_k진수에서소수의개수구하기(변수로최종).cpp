@@ -16,7 +16,7 @@ int solution(int n, int k) {
 	unsigned long long remain = 0;
 	unsigned long long mul = 1;
 	int answer = 0;
-	
+
 
 	while (n > 0 || num > 0) {
 		remain = n % k;
