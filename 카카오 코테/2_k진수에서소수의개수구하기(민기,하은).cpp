@@ -13,7 +13,7 @@ bool primeNum(short int x) {
 
 int solution(int n, int k) {
     short int index = 0;
-    int a[512] = { 0 };  // ¿Ö 512 ??
+    int a[100] = { 0 };  
     int answer = 0;
 
     while (n > 0) {
