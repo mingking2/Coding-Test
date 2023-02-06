@@ -6,6 +6,7 @@ int if_prime(unsigned long long n) {
         if (n % i == 0) return 0;
     return 1;
 }
+
 int solution(int n, int k) {
     int result, answer = 0;
     unsigned long long dec = 0, cnt = 1;

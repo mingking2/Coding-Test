@@ -20,7 +20,7 @@ int solution(int n, int k) {
 
 	while (n > 0 || num > 0) {
 		remain = n % k;
-		printf("remain : %d\n", remain);
+		.printf("remain : %d\n", remain);
 		if (remain == 0) {
 			if (primeNum(num)) answer++;
 			num = 0;
