@@ -19,6 +19,9 @@
     <Filter Include="소스 파일\2.k진수에서소수의개수구하기">
       <UniqueIdentifier>{8d267cbb-3b61-4797-995d-b167df7d4ec0}</UniqueIdentifier>
     </Filter>
+    <Filter Include="소스 파일\3.주차요금계산">
+      <UniqueIdentifier>{5a54b8a7-daf5-41fc-bc0f-8b9458a17312}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="1_신고결과받기(개인).cpp">
@@ -56,6 +59,18 @@
     </ClCompile>
     <ClCompile Include="2_k진수에서소수의개수구하기%28민기,하은%29.cpp">
       <Filter>소스 파일\2.k진수에서소수의개수구하기</Filter>
+    </ClCompile>
+    <ClCompile Include="2_k진수에서소수의개수구하기(승제,지안).cpp">
+      <Filter>소스 파일\2.k진수에서소수의개수구하기</Filter>
+    </ClCompile>
+    <ClCompile Include="2_k진수에서소수의개수구하기(새진 번외).cpp">
+      <Filter>소스 파일\2.k진수에서소수의개수구하기</Filter>
+    </ClCompile>
+    <ClCompile Include="2_k진수에서소수의개수구하기(민주,새진).cpp">
+      <Filter>소스 파일\2.k진수에서소수의개수구하기</Filter>
+    </ClCompile>
+    <ClCompile Include="3_주차요금계산(민기).cpp">
+      <Filter>소스 파일\3.주차요금계산</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
