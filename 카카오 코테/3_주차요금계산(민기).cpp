@@ -22,6 +22,17 @@ record[] : "시각 차량번호 내역"
 
 
 */
+typedef struct parking_cal {
+    int time;
+    char* cnumber;
+    char* tf;
+}Parking;
+
+typedef struct parking_result {
+    int use_time = 0;
+    char* cnumber;
+    int money = 0;
+}Result;
 
 
 int fees[] = {180, 5000, 10, 600};
@@ -32,26 +43,65 @@ const char* records[] = { "05:34 5961 IN", "06:00 0000 IN", "06:34 0000 OUT",
 size_t fees_len = sizeof(fees) / sizeof(fees[0]);
 size_t records_len = sizeof(records) / sizeof(records[0]);
 
-// fees_len은 배열 fees의 길이입니다.
-// records_len은 배열 records의 길이입니다.
-// 파라미터로 주어지는 문자열은 const로 주어집니다. 변경하려면 문자열을 복사해서 사용하세요.
+Parking* park = (Parking*)malloc(sizeof(Parking) * records_len);
+Result* result = (Result*)malloc(sizeof(Result) * records_len);
+
+
 int* solution(int fees[], size_t fees_len, const char* records[], size_t records_len) {
     // return 값은 malloc 등 동적 할당을 사용해주세요. 할당 길이는 상황에 맞게 변경해주세요.
-    char* copy_record;
-    char* time;
-    char* cnumber;
-    char* tf;
+    char copy_record[30] = {};
+    char copy_time[30] = {};
+   // printf("recodes_len : %d\n", records_len);
 
     for (int i = 0; i < records_len; i++) {
+        int sum = 0;
+        char h[10] = {};
+        char m[10] = {};
         strcpy(copy_record, records[i]);
-        time = strtok(copy_record, " ");
-        cnumber = strtok(NULL, " ");
-        tf = strtok(NULL, " ");
 
+        strcpy(copy_time, strtok(copy_record, " "));
+        park[i].cnumber = _strdup(strtok(NULL, " "));
+        park[i].tf = _strdup(strtok(NULL, " "));
+
+        strcpy(h, strtok(copy_time, ":"));
+        strcpy(m, strtok(NULL, " "));
+        
+        sum += atoi(h) * 60 + atoi(m);
+        printf("sum : %d\n", sum);
+
+        park[i].time = sum;
 
     }
 
+    for (int i = 0; i < records_len; i++) {
+        printf("%d\n", park[i].time);
+        printf("%s\n", park[i].cnumber);
+        printf("%s\n\n", park[i].tf);
+    }
+    int i = 0;
+    int j = 0;
+    while(i<records_len) {
+        for (j = i + 1; j < records_len; j++) {
+            if (strcmp("OUT", park[i].tf) == 0) {
+                i++;
+                j = i + 1;
+            }
+            if (strcmp(park[j].cnumber, park[i].cnumber) == 0 && strcmp("IN",park[i].tf) == 0) {
+                strcpy(result[i].cnumber, park[i].cnumber);
+                  
+                result[i].use_time += park[j].time - park[j].time;
+                i++;
+                j = i + 1;
+                
+            }
+        }
+        if (strcmp("IN", park[i].tf) == 0) {
 
+            i++;
+            j = i + 1;
+        }
+        
+    }
 
 
     int* answer = (int*)malloc(1);
