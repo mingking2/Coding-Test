@@ -182,6 +182,7 @@
     <ClCompile Include="2_k진수에서소수의개수구하기(승제,지안).cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
     </ClCompile>
+    <ClCompile Include="3_주차요금계산(민기 성공).cpp" />
     <ClCompile Include="3_주차요금계산(민기).cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
     </ClCompile>

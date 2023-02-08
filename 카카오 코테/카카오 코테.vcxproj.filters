@@ -72,5 +72,8 @@
     <ClCompile Include="3_주차요금계산(민기).cpp">
       <Filter>소스 파일\3.주차요금계산</Filter>
     </ClCompile>
+    <ClCompile Include="3_주차요금계산(민기 성공).cpp">
+      <Filter>소스 파일\3.주차요금계산</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
