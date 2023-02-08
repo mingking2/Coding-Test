@@ -104,11 +104,11 @@ int* solution(int fees[], size_t fees_len, const char* records[], size_t records
 			if (strcmp(park[j].cnumber, park[i].cnumber) == 0 && strcmp("IN", park[i].tf) == 0 && find_index(park[i].cnumber)==-1) {
 
 				result[m].cnumber = _strdup(park[i].cnumber);
-				printf("cnumber : %s\n", result[m].cnumber);
+				//printf("cnumber : %s\n", result[m].cnumber);
 				result[m].time += park[j].time - park[i].time;
-				printf("time : %d\n", park[j].time);
-				printf("time : %d\n", park[i].time);
-				printf("time : %d\n", result[m].time);
+				//printf("time : %d\n", park[j].time);
+				//printf("time : %d\n", park[i].time);
+				//printf("time : %d\n", result[m].time);
 				m++;
 				i++;
 				j = i;
@@ -119,7 +119,6 @@ int* solution(int fees[], size_t fees_len, const char* records[], size_t records
 		}
 		if (strcmp("IN", park[i].tf) == 0) {
 			int index = find_index(park[i].cnumber);
-			printf("index : %d\n", 1439 - park[i].time);
 			result[index].time += (1439 - park[i].time);
 			i++;
 			j = i;
@@ -128,18 +127,18 @@ int* solution(int fees[], size_t fees_len, const char* records[], size_t records
 
 	}
 
-	printf("\n\n\n");
+	/*printf("\n\n\n");
 	for (int i = 0; i < records_len; i++) {
 		printf("cnumber : %s\n", result[i].cnumber);
 		printf("time : %d\n", result[i].time);
 		printf("\n");
-	}
+	}*/
 
 	int* answer = (int*)malloc(sizeof(int)*m);
 	qsort((Parking*)result, m, sizeof(Parking), compare);
 
 	for (int i = 0; i < m; i++) {
-		printf("%s ", result[i].cnumber);
+		//printf("%s ", result[i].cnumber);
 		if (result[i].time > fees[0]) {
 			answer[i] = fees[1] + (ceil((float)(result[i].time - 180) / (float)fees[2])) * fees[3];
 		}
@@ -156,7 +155,7 @@ int* solution(int fees[], size_t fees_len, const char* records[], size_t records
 
 int main() {
 	int* a = solution(fees, fees_len, records, records_len);
-	for (int i = 0; i < 4; i++) {
+	for (int i = 0; i < 3; i++) {
 		printf("%d\n", a[i]);
 	}
 

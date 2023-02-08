@@ -18,9 +18,9 @@ size_t fees_len = sizeof(fees) / sizeof(fees[0]);
 size_t records_len = sizeof(records) / sizeof(records[0]);
 
 int* solution(int fees[], size_t fees_len, const char* records[], size_t records_len) {
-	int* in_time = (int*)malloc(sizeof(int)*10000);
+	int* in_time = (int*)malloc(sizeof(int) * 10000);
 	for (int i = 0; i < 10000; i++) in_time[i] = -1439;
-	int* total_time = (int*)calloc(10000,sizeof(int));
+	int* total_time = (int*)calloc(10000, sizeof(int));
 
 	char copy_record[30] = {};
 	char copy_time[30] = {};
@@ -45,9 +45,9 @@ int* solution(int fees[], size_t fees_len, const char* records[], size_t records
 			printf("sum : %d\n", sum);
 
 			in_time[(atoi)(cnumber)] = sum;
-			
+
 		}
-		else if (strcmp("OUT",tf)==0) {
+		else if (strcmp("OUT", tf) == 0) {
 			strcpy(h, strtok(copy_time, ":"));
 			strcpy(m, strtok(NULL, " "));
 
@@ -78,9 +78,9 @@ int* solution(int fees[], size_t fees_len, const char* records[], size_t records
 			else {
 				answer[length++] = fees[1];
 			}
-			
+
 		}
-			
+
 	}
 
 	free(in_time);
