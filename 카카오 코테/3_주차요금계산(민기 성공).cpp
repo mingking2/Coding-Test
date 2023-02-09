@@ -65,7 +65,6 @@ int* solution(int fees[], size_t fees_len, const char* records[], size_t records
 
 	}
 
-
 	for (int i = 0; i < 10000; i++) {
 		if (in_time[i] == -1) cnt++;
 		if (in_time[i] != -1 && in_time[i] != 5000) {
