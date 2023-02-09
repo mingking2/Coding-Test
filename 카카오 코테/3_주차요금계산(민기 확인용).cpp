@@ -14,8 +14,6 @@ const char* records[] = { "05:34 5961 IN", "06:00 0000 IN", "06:34 0000 OUT",
 
 //{ "16:00 3961 IN", "16:00 0202 IN", "18:00 3961 OUT", "18:00 0202 OUT", "23:58 3961 IN" };
 
-
-
 size_t fees_len = sizeof(fees) / sizeof(fees[0]);
 size_t records_len = sizeof(records) / sizeof(records[0]);
 
@@ -39,48 +37,37 @@ int* solution(int fees[], size_t fees_len, const char* records[], size_t records
 		strcpy(copy_time, strtok(copy_record, " "));
 		cnumber = strtok(NULL, " ");
 		tf = (strtok(NULL, " "));
-		printf("%s\n", cnumber);
-		
+
 		if (strcmp("IN", tf) == 0) {
 			strcpy(h, strtok(copy_time, ":"));
 			strcpy(m, strtok(NULL, " "));
 
 			sum += atoi(h) * 60 + atoi(m);
-			//printf("IN - sum : %d\n", sum);
-
 			in_time[(atoi)(cnumber)] = sum;
-
 		}
 		else if (strcmp("OUT", tf) == 0) {
 			strcpy(h, strtok(copy_time, ":"));
 			strcpy(m, strtok(NULL, " "));
 
 			sum += atoi(h) * 60 + atoi(m);
-			//printf("OUT - sum : %d\n", sum);
-			
 			total_time[(atoi)(cnumber)] += (sum - in_time[(atoi)(cnumber)]);
-			
+
 			in_time[(atoi)(cnumber)] = -1;
 		}
-
 	}
 
 
 	for (int i = 0; i < 10000; i++) {
-		if (in_time[i] == -1) cnt++;
+		if (in_time[i] == -1)	cnt++;
 		if (in_time[i] != -1 && in_time[i] != 5000) {
 			total_time[i] += (1439 - in_time[i]);
 			cnt++;
-			//printf("total_time[%d] = %d\n", i, total_time[i]);
 		}
 	}
-	printf("cnt : %d\n", cnt);
 	int length = 0;
 	int* answer = (int*)malloc(sizeof(int) * cnt);
 	for (int i = 0; i < 10000; i++) {
 		if (total_time[i] > 0) {
-			//printf("in_time[%d] = %d\n", i, in_time[i]);
-			//printf("total_time[%d] = %d\n", i, total_time[i]);
 			if (total_time[i] > fees[0]) {
 				answer[length++] = fees[1] + (ceil((float)(total_time[i] - fees[0]) / (float)fees[2])) * fees[3];
 			}
@@ -94,13 +81,4 @@ int* solution(int fees[], size_t fees_len, const char* records[], size_t records
 	free(total_time);
 
 	return answer;
-
-}
-
-int main() {
-	int* a = solution(fees, fees_len, records, records_len);
-	for (int i = 0; i < 3; i++) {
-		printf("%d\n", a[i]);
-	}
-
 }
