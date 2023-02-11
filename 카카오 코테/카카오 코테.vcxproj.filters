@@ -93,5 +93,8 @@
     <ClCompile Include="3_주차요금계산(새진,지안).cpp">
       <Filter>소스 파일\3.주차요금계산</Filter>
     </ClCompile>
+    <ClCompile Include="3_주차요금계산(별개 하은 창작 승제 피쳐링).cpp">
+      <Filter>소스 파일\3.주차요금계산</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
