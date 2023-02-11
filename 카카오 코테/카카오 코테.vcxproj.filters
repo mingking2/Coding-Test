@@ -81,5 +81,11 @@
     <ClCompile Include="3_주차요금계산(민주).cpp">
       <Filter>소스 파일\3.주차요금계산</Filter>
     </ClCompile>
+    <ClCompile Include="안수진.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="안수진 테스트.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
