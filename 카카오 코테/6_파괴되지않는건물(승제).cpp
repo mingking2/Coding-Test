@@ -15,6 +15,7 @@ void check() {
 	}
 	printf("정답은 : %d", count);
 }
+
 void status() {
 	printf("  [현재 건물의 체력 상태] \n");
 	for (int i = 0; i < 4; i++) {
@@ -24,6 +25,7 @@ void status() {
 		printf("\n");
 	}
 }
+
 int main() {
 	status();
 	int i = 0;
