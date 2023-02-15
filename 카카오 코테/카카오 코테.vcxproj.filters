@@ -22,6 +22,9 @@
     <Filter Include="소스 파일\3.주차요금계산">
       <UniqueIdentifier>{5a54b8a7-daf5-41fc-bc0f-8b9458a17312}</UniqueIdentifier>
     </Filter>
+    <Filter Include="소스 파일\6.파괴되지않는건물">
+      <UniqueIdentifier>{2e77a038-4eb0-476d-99ba-a0bfd1e277ec}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="1_신고결과받기(개인).cpp">
@@ -95,6 +98,12 @@
     </ClCompile>
     <ClCompile Include="3_주차요금계산(별개 하은 창작 승제 피쳐링).cpp">
       <Filter>소스 파일\3.주차요금계산</Filter>
+    </ClCompile>
+    <ClCompile Include="6_파괴되지않는건물0.cpp">
+      <Filter>소스 파일\6.파괴되지않는건물</Filter>
+    </ClCompile>
+    <ClCompile Include="6_파괴되지않는건물1.cpp">
+      <Filter>소스 파일\6.파괴되지않는건물</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
