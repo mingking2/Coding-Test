@@ -1,28 +1,38 @@
-#define _CRT_SECURE_NO_WARNINGS
-#include <stdio.h>
+#include <iostream>
+using namespace std;
 
-// 범위 축약
+int a[1000001];
 
-bool isPrime(int num) {
-	if (num < 2) return false;
-	for (int i = 2; i * i <= num; i++) {
-		if (num % i == 0) return false;
-	}
-	return true;
+void isPrime(int m, int num)
+{
+    for (int i = 2; i <= num; i++)
+    {
+        a[i] = i;
+    }
+    for (int i = 2; i <= num; i++)
+    {
+        if (a[i] == 0)
+            continue;
+        for (int j = i + i; j <= num; j += i)
+        {
+            a[j] = 0;
+        }
+    }
+    for (int i = m; i <= num; i++)
+    {
+        if (a[i] != 0)
+            cout << a[i] << "\n";
+    }
 }
 
+int main()
+{
+    ios::sync_with_stdio(false);
+    cin.tie(NULL);
+    cout.tie(NULL);
 
-int main() {
-	int M, N;
-	scanf("%d %d", &M,&N);
+    int m, n;
+    cin >> m >> n;
 
-	for (int i = M; i <= N; i++) {
-		if (isPrime(i)) {
-			printf("%d\n", i);
-		}
-	}
-	
-	
-	
-
+    isPrime(m, n);
 }
