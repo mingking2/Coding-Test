@@ -7,7 +7,7 @@ int main() {
     cin >> n >> k;
 
     long long s = 0;
-    long long e = n/2;
+    long long e = n;
 
     while(s<=e) {
         long long mid = (s + e) / 2;
