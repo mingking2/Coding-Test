@@ -23,10 +23,10 @@ for _ in range(t):
     for _ in range(k):
         x, y = map(int, sys.stdin.readline().split())
         matrix[y][x] = 1
-    for i in range(n):
-        for j in range(m):
-            if matrix[i][j] == 1:
-                dfs(i,j)
+    for j in range(n):
+        for i in range(m):
+            if matrix[j][i] == 1:
+                dfs(j, i)
                 count += 1
 
     print(count)
