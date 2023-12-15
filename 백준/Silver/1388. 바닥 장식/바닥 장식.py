@@ -25,14 +25,14 @@ count2 = 0
 for i in range(n):
     for j in range(m):
         if matrix[i][j] == "-":
-            dxx = [0, 0]
-            dxy = [-1, 1]
-            dfs(i, j, '-', dxx, dxy)
+            dyy = [0, 0]
+            dyx = [-1, 1]
+            dfs(i, j, '-', dyy, dyx)
             count1 += 1
         elif matrix[i][j] == "|":
-            dyx = [-1, 1]
-            dyy = [0, 0]
-            dfs(i, j, '|', dyx, dyy)
+            dxy = [-1, 1]
+            dxx = [0, 0]
+            dfs(i, j, '|', dxy, dxx)
             count2 += 1
 
 
@@ -40,7 +40,7 @@ for i in range(n):
 #     for j in range(m):
 #         print(matrix[i][j], end="")
 #     print()
-# 
+#
 # print(count1)
 # print(count2)
 print(count1 + count2)
